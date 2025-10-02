@@ -1,1 +1,1130 @@
 
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelPoints</title>
+    <link rel="icon" href="img/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
+    />
+  </head>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+    * {
+      padding: 0px;
+      margin: 0px;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /*Cabeza*/
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      border-bottom: 2px solid red;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 500;
+    }
+
+    .header .navbar {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-link {
+      width: 140px;
+      font-size: 19.7px;
+      font-weight: 500;
+      color: #fc8264;
+      text-transform: uppercase;
+      font-family: Oswald, sans-serif;
+    }
+
+    .logo-link span {
+      font-size: 19.7px;
+      font-weight: 300;
+      color: #444;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+      margin-left: -1px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: 200px;
+    }
+
+    .header .navbar .navigation .link {
+      position: relative;
+      padding: 10px;
+      text-transform: capitalize;
+      font-size: 16px;
+      font-weight: 400;
+      color: #444;
+      transition: all 1s;
+    }
+
+    .header .navbar .navigation .link:hover {
+      color: #fc8264;
+    }
+
+    .header .navbar .navigation .link::after {
+      position: absolute;
+      content: "";
+      bottom: 2px;
+      left: 50%;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      transition: all 2s;
+      transform: translateX(-50%);
+    }
+
+    .header .navbar .navigation .link:hover::after {
+      width: 60%;
+      background-color: #fc8264;
+    }
+
+    .header .navbar .controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.2em;
+      width: 50%;
+    }
+
+    .header .navbar .controls .icon {
+      position: relative;
+      height: 34px;
+      width: 34px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      color: #111;
+      transition: all 1s;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1.8px solid #eee;
+    }
+
+    .header .navbar .controls .icon:hover {
+      background-color: #000;
+      color: #fff !important;
+    }
+
+    /*Fin*/
+
+    /*Imagen y Reserva*/
+    #menu {
+      display: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .home {
+      width: 100%;
+      min-height: 100vh;
+      background: url(img/fond.jpg);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .home .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.4rem;
+      align-items: center;
+      padding-top: 70px;
+    }
+
+    .home .items .item {
+      width: 100%;
+      grid-column: span 2;
+    }
+
+    .home .items .item .content .title {
+      font-size: 44px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .home .items .item .content .desc {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem 0rem;
+    }
+
+    .home .items .item .content .desc p {
+      font-size: 14px;
+      color: #eee;
+    }
+
+    .home .items .item .content .buttons {
+      width: 100%;
+    }
+
+    .home .items .item .content .btn {
+      padding: 0.9rem 2.4rem;
+      border: 2px solid #fff7;
+      background-color: #000a;
+      font-size: 14px;
+      line-height: 14px;
+      color: #eee;
+      cursor: pointer;
+      transition: all 1s;
+    }
+
+    .home .items .item .content .btn:hover {
+      color: #fff;
+      background-color: #000;
+    }
+
+    .home .items .item .box {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-shadow: 2px 0px 20px #aaa;
+    }
+
+    .home .items .item .box .line {
+      width: 100%;
+      padding: 1rem 0rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .home .items .item .box .line label {
+      font-size: 15px;
+      font-weight: 400;
+      color: #333;
+    }
+
+    .home .items .item .box .line .input {
+      font-size: 15px;
+      line-height: 15px;
+      font-weight: 400;
+      color: #888;
+      padding: 0.75rem 0.5rem;
+      border: 1px solid #aaa;
+      outline: none;
+      transition: all 1s;
+    }
+
+    .home .items .item .box .line .input:hover {
+      border: 1px solid #fc8264;
+      color: #222;
+    }
+
+    .home .items .item .box .btn {
+      font-size: 15px;
+      line-height: 15px;
+      font-weight: 400;
+      color: #fff;
+      padding: 0.75rem 0.5rem;
+      border: 2px solid #aaa;
+      background-color: #fc8264;
+      outline: none;
+      cursor: pointer;
+      transition: all 1s;
+    }
+
+    .home .items .item .box .btn:hover {
+      border-color: #fc8264;
+      background-color: #fc8264;
+    }
+    /*Fin*/
+
+    /*Seccion Beneficios*/
+
+    .heading {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0rem;
+      padding-top: 2rem;
+    }
+
+    .heading h1 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: #111;
+      text-align: center;
+      letter-spacing: 1px;
+      font-family: "Poppins", sans-serif;
+      padding: 1rem 0rem;
+    }
+
+    .heading .subtitle {
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #fc8264;
+    }
+
+    .heading .desc {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: -3rem;
+    }
+
+    .heading .desc p {
+      font-size: 17px;
+      color: #444;
+    }
+
+    .about {
+      padding: 4rem 0rem;
+    }
+
+    .about .items {
+      padding: 2rem 0rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem;
+    }
+
+    .about .items .item {
+      width: 100%;
+      cursor: pointer;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      background-color: #fc8264;
+    }
+
+    .about .items .item .image {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .about .items .item .image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: all 1s;
+    }
+
+    .about .items .item:hover .image img {
+      transform: scale(1.1);
+    }
+
+    .about .items .item .item-title {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: 16.5px;
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem;
+      transition: all 1s;
+      position: relative;
+      z-index: 100;
+      color: transparent;
+    }
+
+    .about .items .item:hover .item-title {
+      margin-top: -200px;
+      color: #fff;
+      background-color: #0008;
+    }
+
+    .about .items .item .item-title.active {
+      margin-top: -200px;
+      color: #fff;
+      background-color: #0008;
+    }
+
+    /*Fin*/
+
+    /*Servicios En TravelPoints*/
+    .services {
+      width: 100%;
+      padding: 1rem 0rem;
+      background-color: #fafafa;
+    }
+
+    .services .items {
+      padding: 2rem 0rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.3rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services .items .item {
+      grid-column: span 2;
+      width: 100%;
+      cursor: pointer;
+      padding: 2rem 1rem;
+      background-color: #fff;
+      transition: all 1s;
+    }
+
+    .services .items .item:hover {
+      background-color: #000;
+      box-shadow: 0px 0px 4px #0e3000;
+    }
+
+    .services .items .item .image {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .services .items .item .image i {
+      font-size: 90px;
+      width: 220px;
+      height: 220px;
+      color: #111;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 2px solid #fc8264;
+      background-color: #fff;
+    }
+
+    .services .items .item:hover .image i {
+      transform: scale(1.1);
+      color: #fc8264;
+    }
+
+    .services .items .item .item-title {
+      font-size: 17px;
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem;
+      transition: all 1s;
+      position: relative;
+      z-index: 100;
+      color: #fc8264;
+      text-transform: capitalize;
+    }
+
+    .services .items .item:hover .item-title {
+      margin-top: -10px;
+    }
+
+    .services .items .item .item-desc {
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem;
+      transform-origin: all 1s;
+      position: relative;
+      z-index: 100;
+      color: #444;
+    }
+
+    .services .items .item .item-desc p {
+      color: #010101;
+    }
+
+    .services .items .item:hover .item-desc p {
+      color: #fafafa;
+    }
+
+    /*Fin*/
+
+    /*Blog*/
+    .blog {
+      padding: 2rem 0rem;
+    }
+
+    .blog .items {
+      padding: 2rem 0rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2.2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .blog .items .item {
+      width: 100%;
+      height: 380px;
+      cursor: pointer;
+      padding: 0rem;
+      background-color: #fafafa;
+      box-shadow: 0px 0px 1px #fc862744;
+      transition: all 1s;
+    }
+
+    .blog .items .item .image {
+      width: 100%;
+      height: 250px;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    .blog .items .item .image img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      opacity: 0.8;
+      transition: all 1s;
+    }
+
+    .blog .items .item:hover .image img {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .blog .items .item .item-title {
+      width: 100%;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 0.75rem 0.25rem;
+      color: #111;
+    }
+
+    .blog .items .item .item-desc {
+      width: 100%;
+      font-size: 13px;
+      font-weight: 400;
+      padding: 0.5rem 0.5rem;
+      color: #444;
+    }
+
+    .blog .items .item .date {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 300;
+      padding: 0rem 0.25rem;
+      color: #777;
+    }
+
+    /*Fin*/
+
+    /*Footer*/
+    .footer {
+      background-color: #444;
+      color: #aaa;
+      padding-top: 2rem;
+    }
+
+    .footer .items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 3rem;
+      padding-bottom: 1rem;
+      max-width: 1200px;
+    }
+
+    .footer .items .item {
+      width: 100%;
+      grid-column: span 2;
+    }
+
+    .footer .items .item:nth-child(3) {
+      width: 100%;
+      grid-column: span 1;
+    }
+
+    .footer .items .item:nth-child(1) {
+      width: 100%;
+      grid-column: span 3;
+    }
+
+    .footer .items .item .head {
+      width: 100%;
+      height: 95px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .footer .logo-link {
+      font-size: 30px;
+    }
+
+    .footer .logo-link span {
+      color: #fff;
+    }
+
+    .footer .items .item .head h1 {
+      font-size: 22px;
+      line-height: 22px;
+      font-weight: 500;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .footer .items .item .desc {
+      width: 100%;
+      max-width: 380px;
+      padding: 1rem 0rem;
+      padding-top: 0rem;
+    }
+
+    .footer .items .item .desc p {
+      font-size: 13px;
+      color: #fafafa;
+    }
+
+    .footer .items .item .link {
+      display: block;
+      font-size: 14px;
+      line-height: 24px;
+      color: #fafafa;
+      padding: 0rem 0rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .footer .items .item .social {
+      width: 100%;
+      padding: 1rem 0rem;
+      padding-top: 0rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer .items .item .social .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 17px;
+      color: #fafafa;
+      width: 35px;
+      height: 35px;
+      border: 1px solid#fff;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 1s;
+    }
+
+    .footer .items .item .social .icon:hover {
+      color: #fff;
+      border: 1px solid#cf4632;
+      background-color: #cf4632;
+    }
+
+    .footer .items .item .form button {
+      width: 20%;
+      border-radius: 1px;
+      font-size: 18px;
+      background-color: #fc8264;
+      margin-top: 10px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 1s;
+      border: none;
+    }
+
+    .footer .items .item .form button:hover {
+      background-color: #cf4632;
+    }
+
+    .footer .row {
+      width: 100%;
+      background-color: #222;
+    }
+
+    .footer .row .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer .row .container .col {
+      padding: 0.6rem 0rem;
+    }
+
+    .footer .row .container .link {
+      font-size: 13px;
+      color: #fafafa;
+      text-transform: capitalize;
+      font-weight: 400;
+      padding-right: 1rem;
+    }
+
+    .footer .row .container .link:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    .footer .row .container p {
+      font-size: 12px;
+      color: #f7f7f7;
+      font-weight: 400;
+    }
+
+    .footer .row .container a {
+      font-size: 12px;
+      color: #fefefe;
+      font-weight: 500;
+    }
+
+    .footer .row .container a:hover {
+      text-decoration: underline;
+    }
+
+    /*Fin*/
+  </style>
+
+  <body>
+    <!---Cabeza-->
+    <header class="header" id="header">
+      <nav class="navbar">
+        <a href="" class="logo-link"> Travel<span>Points</span> </a>
+        <div class="navigation" id="navigation">
+          <a href="#" class="link">Inicio</a>
+          <a href="#" class="link">Hoteles</a>
+          <a href="#" class="link">Vehiculos</a>
+          <a href="#" class="link">Experiencias</a>
+          <a href="#" class="link">Blog</a>
+          <a href="#" class="link">Contacto</a>
+        </div>
+
+        <div class="controls" id="controls">
+          <span class="icon"><i class="bx bx-user"></i></span>
+          <span class="icon"><i class="bx bx-search"></i></span>
+          <span class="icon menu" id="menu"
+            ><i class="bx bx-menu-alt-right"></i
+          ></span>
+        </div>
+      </nav>
+    </header>
+    <!---Fin----->
+
+    <!---Imagen-->
+
+    <section class="home" id="home">
+      <div class="container">
+        <div class="items">
+          <div class="item">
+            <div class="content">
+              <h1 class="title">
+                Alqulila o Reserva <br />
+                Tu Hotel En Un Instante
+              </h1>
+              <div class="desc">
+                <p>¿Quieres pasar tu vacaciones, o no sabes donde?</p>
+              </div>
+              <div class="buttons">
+                <button class="btn">Comenzar</button>
+              </div>
+            </div>
+          </div>
+          <!------Reservas--------->
+          <div class="item">
+            <div class="box">
+              <h1 class="title">Reserva Tu Hotel</h1>
+
+              <form action="" class="form">
+                <div class="line">
+                  <label for="">Fecha Entrada</label>
+                  <input type="date" name="in" id="in" class="input" />
+                </div>
+                <div class="line">
+                  <label for="">Fecha Salida</label>
+                  <input type="date" name="out" id="out" class="input" />
+                </div>
+
+                <div class="line">
+                  <label for="">Personas</label>
+                  <select name="personas" id="Personas" class="input">
+                    <option value="1">1 Adulto</option>
+                    <option value="2">2 Adultos</option>
+                    <option value="3">2 Adultos, 1 Niño</option>
+                    <option value="4">2 Adultos, 2 Niños</option>
+                    <option value="5">4 Adultos, 2 Niños</option>
+                    <option value="6">4 Adulto, 3 Niños</option>
+                    <option value="7">4 Adulto, 4 Niños</option>
+                  </select>
+                </div>
+
+                <div class="line">
+                  <label for="">Alojamiento</label>
+                  <select name="personas" id="Personas" class="input">
+                    <option value="1">1 Habitación</option>
+                    <option value="2">2 Habitaciónes</option>
+                    <option value="3">3 Habitaciónes</option>
+                    <option value="4">4 Habitaciónes</option>
+                    <option value="5">1 Habitación , 1 Habitación Niño</option>
+                    <option value="6">
+                      2 Habitaciónes , 2 Habitaciónes Niño
+                    </option>
+                    <option value="7">
+                      1 Habitaciónes , 2 Habitaciónes Niño
+                    </option>
+                  </select>
+                </div>
+                <div class="line">
+                  <button class="btn">Reservar Ahora</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---Fin----->
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="heading">
+          <h2 class="subtitle">Beneficios</h2>
+          <h1 class="title">TravelPoints</h1>
+          <br />
+        </div>
+        <div class="heading">
+          <div class="desc">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+              numquam in. Totam earum incidunt autem quasi consectetur omnis
+              quisquam facere.
+            </p>
+          </div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <h1 class="item-title active">Hotel España</h1>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img src="img/hotel.jpg" alt="" srcset="" />
+            </div>
+            <h1 class="item-title">Hotel Barcelona</h1>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <img src="img/hotel.jpg" alt="" srcset="" />
+            </div>
+            <h1 class="item-title">Hotel Malaga</h1>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <img src="img/hotel.jpg" alt="" />
+            </div>
+            <h1 class="item-title">Hotel Valencia</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---Fin--->
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="heading">
+          <h2 class="subtitle">Hoteles, Vehiculos y Experiencia</h2>
+          <h1 class="title">Servicios En TravelPoints</h1>
+          <br />Todos nuestros servicos disponibles aqui
+        </div>
+        <div class="heading">
+          <div class="desc">
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+              rem odit suscipit eligendi sint sapiente magni nam. Magni quidem
+              quasi, maiores ad, vero, doloribus quae error odit consequuntur
+              modi tenetur?
+            </p>
+          </div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="image">
+              <i class="bx bxs-plane-land"></i>
+            </div>
+            <h1 class="item-title">Vuelos</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <i class="bx bxs-bus"></i>
+            </div>
+            <h1 class="item-title">Transporte Terrestre</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="image">
+              <i class="bx bxs-parking"></i>
+            </div>
+            <h1 class="item-title">Parking</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <i class="bx bx-restaurant"></i>
+            </div>
+            <h1 class="item-title">Restaurantes</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <i class="bx bx-hotel"></i>
+            </div>
+            <h1 class="item-title">Hoteles</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <i class="bx bxs-plane"></i>
+            </div>
+            <h1 class="item-title">Vuelos</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem distinctio nobis fugiat unde iusto blanditiis magni
+                commodi enim quisquam assumenda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Blog-->
+    <section class="blog" id="news">
+      <div class="container">
+        <div class="heading">
+          <h2 class="subtitle">Noticias</h2>
+          <h1 class="title"><span>Blog</span><br />Nuevas ofertas</h1>
+        </div>
+        <div class="heading">
+          <div class="desc">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nemo
+              aut ea animi quia itaque voluptatum nesciunt excepturi veritatis
+              hic!
+            </p>
+          </div>
+        </div>
+        <div class="items">
+          <div class="item">
+            <div class="image">
+              <img src="img/hotel.jpg" alt="" />
+            </div>
+            <h1 class="item-title">Plan de Vuelo</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+                a.
+              </p>
+            </div>
+            <div class="date">
+              <i class="bx bx-calendar"></i>
+              <span>19 Julio</span>
+              <span>2025</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <img src="" alt="" />
+            </div>
+            <h1 class="item-title">Plan de Vuelo</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+                a.
+              </p>
+            </div>
+            <div class="date">
+              <i class="bx bx-calendar"></i>
+              <span>19 Julio</span>
+              <span>2025</span>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="image">
+              <img src="" alt="" />
+            </div>
+            <h1 class="item-title">Plan de Vuelo</h1>
+            <div class="item-desc">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste,
+                a.
+              </p>
+            </div>
+            <div class="date">
+              <i class="bx bx-calendar"></i>
+              <span>19 Julio</span>
+              <span>2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---Fin--->
+
+    <!--Footer-->
+    <footer class="footer">
+      <div class="container">
+        <div class="items">
+          <div class="item">
+            <div class="head">
+              <a href="" class="logo-link"> Travel<span>Points</span> </a>
+            </div>
+            <div class="desc">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe,
+                minus.
+              </p>
+            </div>
+            <div class="social">
+              <a href="" class="icon"><i class="bx bxl-facebook"></i></a>
+              <a href="" class="icon"><i class="bx bxl-twitter"></i></a>
+              <a href="" class="icon"><i class="bx bxl-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="head">
+              <h1 class="title">Contactanos Aqui</h1>
+            </div>
+            <div class="links">
+              <a href="#" class="link">+34 678 989 098</a>
+              <a href="#" class="link">info@gmail.com</a>
+              <a href="#" class="link">987 Park Line, Apt 54 Piso 3</a>
+            </div>
+          </div>
+
+          <div class="item">
+            <div class="head">
+              <h1 class="title">Nuevas Noticias</h1>
+            </div>
+            <div class="desc">
+              <p>Envia un correo</p>
+            </div>
+
+            <form action="" class="form">
+              <input type="email" />
+              <button><i class="bx bx-send"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <div class="col">
+            <a href="#" class="link">Contacto</a>
+            <a href="#" class="link">Terminos y Condiciones</a>
+            <a href="#" class="link">Privacidad</a>
+            <a href="#" class="link">Politicas</a>
+          </div>
+
+          <div class="col">
+            <p>Todos los derechos reservados & Copyright 2025</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!---Fin--->
+
+    <script>
+      const menu = document.getElementById("menu");
+      const navigation = document.getElementById("navigation");
+
+      menu.addEventListener("click", () => {
+        navigation.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
