@@ -1,1 +1,117 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      body {
+        margin: 0;
+        background-color: #efefef;
+      }
+
+      header {
+        background-color: #364552;
+        color: white;
+        padding: 3rem 2rem;
+      }
+
+      header h1 {
+        font-size: 4rem;
+        text-align: center;
+      }
+
+      .container {
+        width: 400px;
+        margin: 0 auto;
+      }
+      section article {
+        transition: all 0.3s ease;
+        background-color: #fff;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0;
+        cursor: pointer;
+      }
+
+      section article:hover {
+        box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
+      }
+
+      section article h2,
+      section article p {
+        margin: 1rem;
+      }
+
+      footer {
+        background-color: #222;
+        padding: 3rem;
+        color: #fff;
+      }
+
+      footer section {
+        float: right;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      footer a {
+        transition: color 0.3s ease;
+        color: white;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: cornflowerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="titulo">Mi Blog</h1>
+    </header>
+
+    <section class="container">
+      <article>
+        <h2>Titulo 1</h2>
+        <p>Descripcion 1</p>
+        <img src="img/imagen1.jpg" width="400" />
+        <p>Esto es un texto de prueba</p>
+      </article>
+
+      <article>
+        <h2>Titulo 2</h2>
+        <p>Descripcion 2</p>
+        <img src="img/imagen2.jpg" width="400" />
+        <p>Esto es un texto de prueba</p>
+      </article>
+
+      <article>
+        <h2>Titulo 3</h2>
+        <p>Descripcion 3</p>
+        <img src="img/imagen3.png" width="400" />
+        <p>Esto es un texto de prueba</p>
+      </article>
+    </section>
+
+    <footer>
+      <section>
+        <a href="#titulo">Ir Arriba</a>
+        <a href="mailto:crist042m@gmail.com">Contactanos Aqui</a>
+      </section>
+      <p>Copyright 2025</p>
+    </footer>
+  </body>
+</html>
